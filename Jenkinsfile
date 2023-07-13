@@ -14,7 +14,7 @@ pipeline {
 
     stage('Kaniko Build & Push Image') {
       steps {
-        image: gcr.io/kaniko-project/executor@sha256:0fae223f496525e31226cde473ec77ed15abfa8cbabff5ff5bf1c5268355bbb0
+        gcr.io/kaniko-project/executor@sha256:0fae223f496525e31226cde473ec77ed15abfa8cbabff5ff5bf1c5268355bbb0
         container('kaniko') {
           script {
             sh '''
