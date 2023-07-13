@@ -10,7 +10,7 @@ spec:
     - /bin/cat
     tty: true    
   - name: kaniko
-    image: bitnami/kaniko:latest
+    image: gcr.io/kaniko-project/executor:debug
     command:
     - /busybox/cat
     tty: true
