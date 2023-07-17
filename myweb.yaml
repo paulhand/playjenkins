@@ -9,31 +9,31 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   labels:
-    app: myweb2
-  name: myweb2
+    app: myweb
+  name: myweb
   namespace: pipeline-demo
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: myweb2
+      app: myweb
   template:
     metadata:
       labels:
-        app: myweb2
+        app: myweb
     spec:
       containers:
       - image: justmeandopensource/myweb:<TAG>
         imagePullPolicy: Always
-        name: myweb2
+        name: myweb
 
 ---
 apiVersion: v1
 kind: Service
 metadata:
   labels:
-    app: myweb2
-  name: myweb2
+    app: myweb
+  name: myweb
   namespace: pipeline-demo
 spec:
   ports:
@@ -42,5 +42,5 @@ spec:
     protocol: TCP
     targetPort: 80
   selector:
-    app: myweb2
+    app: myweb
   type: NodePort
