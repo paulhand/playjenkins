@@ -35,13 +35,14 @@ pipeline {
             // sh 'kubectl apply -f myweb.yaml'
           }
         }
-        agent {
-          kubernetes {
-            yamlFile 'myweb.yaml'
-          }
-        }
       }
     }
   
   }
+  agent {
+    kubernetes {
+     yamlFile 'myweb.yaml'
+    }
+  }
+
 }
