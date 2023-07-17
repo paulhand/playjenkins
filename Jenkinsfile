@@ -33,11 +33,11 @@ pipeline {
             sh 'sed -i "s/<TAG>/${BUILD_NUMBER}/" myweb.yaml'
             sh 'cat myweb.yaml'
             // sh 'kubectl apply -f myweb.yaml'
-            agent {
+          }
+          agent {
              kubernetes {
               yamlFile 'myweb.yaml'
              }
-            }
           }
         }
       }
