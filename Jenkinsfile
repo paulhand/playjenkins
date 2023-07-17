@@ -35,7 +35,7 @@ pipeline {
             // sh 'kubectl apply -f myweb.yaml'
             agent {
              kubernetes {
-              yamlFile 'builder.yaml'
+              yamlFile 'myweb.yaml'
              }
             }
           }
