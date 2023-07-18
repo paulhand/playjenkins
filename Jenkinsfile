@@ -29,16 +29,13 @@ pipeline {
     stage('Deploy App to Kubernetes') {     
       steps {
         container('kubectl') {
-          //withCredentials([file(credentialsId: 'mykubeconfig', variable: 'KUBECONFIG', serverUrl: '192.168.216.129')]) {
+          withCredentials([file(credentialsId: 'mykubeconfig', variable: 'KUBECONFIG', serverUrl: '192.168.216.129')]) {
             sh 'sed -i "s/<TAG>/${BUILD_NUMBER}/" myweb.yaml'
             sh 'cat myweb.yaml'
             sh 'kubectl create -f myweb.yaml'
-          //}
+          }
         }
       }
-      //withKubeConfig([credentialsId: 'mykubeconfig', serverUrl: '192.168.216.129']) {
-      //sh '/usr/bin/kubectl apply -f myweb.yaml'
-    // }
     }
   }
 }
