@@ -29,7 +29,6 @@ pipeline {
     stage('Deploy App to Kubernetes') {     
       steps {
         container('kubectl') {
-          withKubeConfig([credentialsId: 'mykubeconfig', serverUrl: '192.168.216.129']) {
           withCredentials([file(credentialsId: 'mykubeconfig', variable: 'KUBECONFIG', serverUrl: '192.168.216.129')]) {
             sh 'sed -i "s/<TAG>/${BUILD_NUMBER}/" myweb.yaml'
             sh 'cat myweb.yaml'
