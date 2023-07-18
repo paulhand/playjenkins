@@ -37,7 +37,7 @@ pipeline {
       //  }
       //}
       withKubeConfig([credentialsId: 'mykubeconfig', serverUrl: '192.168.216.129']) {
-      sh 'kubectl apply -f myweb.yaml'
+      sh '/usr/bin/kubectl apply -f myweb.yaml'
     }
     }
   }
