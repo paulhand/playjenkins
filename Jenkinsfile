@@ -27,7 +27,7 @@ pipeline {
     }
 
     stage('Deploy App to Kubernetes') {     
-      //steps {
+      steps {
       //  container('kubectl') {
       //    withCredentials([file(credentialsId: 'mykubeconfig', variable: 'KUBECONFIG', serverUrl: '192.168.216.129')]) {
       //      sh 'sed -i "s/<TAG>/${BUILD_NUMBER}/" myweb.yaml'
@@ -41,4 +41,5 @@ pipeline {
     }
     }
   }
+}
 }
